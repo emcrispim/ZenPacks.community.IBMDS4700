@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Storage', 'IBMDS4700') -->
+<object id='/zport/dmd/Devices/Storage/IBMDS4700' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['community.cmd.IBMDS4700']
+</property>
+<property visible="True" type="string" id="zPythonClass" >
+ZenPacks.community.IBMDS4700.IBMDS4700Device
+</property>
+<property visible="True" type="lines" id="zDeviceTemplates" >
+['Device', 'DS4700Template']
+</property>
+<tomanycont id='rrdTemplates'>
+<object id='DS4700Template' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
+<tomanycont id='datasources'>
+<object id='monitorComponent' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+COMMAND
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="string" id="commandTemplate" mode="w" >
+/bin/hostname
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+ZenPacks.community.IBMDS4700.parsers.monitorParser
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'SM10-R3-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/SM10-R3-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property id='zendoc' type='string'>
+SANtricity Storage Manager for E-Series Storage Systems
+</property>
+<property type="string" id="language" mode="w" >
+SMIv2
+</property>
+<property type="string" id="contact" mode="w" >
+http://www.netapp.com/us/support/
+</property>
+<property type="string" id="description" mode="w" >
+SANtricity Storage Manager for E-Series Storage Systems
+</property>
+<tomanycont id='nodes'>
+<object id='componentLocation' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A string to identify the location of the failing component
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A string to identify the location of the failing component
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='componentType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A string to identify the failing component type
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A string to identify the failing component type
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='deviceErrorCode' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The error code as reported by the device or host.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The error code as reported by the device or host.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='deviceHostIPAddr' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+IP Address of the network-attached device or device host.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+IP Address of the network-attached device or device host.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='deviceHostIPType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Type of IP Address of the network-attached device or device host. 0 unknown, 1 ipv4, 2 ipv6
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Type of IP Address of the network-attached device or device host. 0 unknown, 1 ipv4, 2 ipv6
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='deviceHostName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The user label for the host of the device being reported on.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The user label for the host of the device being reported on.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='deviceUserLabel' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The user label for the device being reported on.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The user label for the device being reported on.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='eSeriesStorageSystem' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123
+</property>
+</object>
+<object id='eventTime' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The time at which the event happen on the device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The time at which the event happen on the device.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='infoEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The data for array traps.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The data for array traps.
+</property>
+</object>
+<object id='infoTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information for array traps.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information for array traps.
+</property>
+</object>
+<object id='netapp' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789
+</property>
+</object>
+<object id='sm10R3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+</object>
+<object id='sm10R3TrapBase' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.0
+</property>
+</object>
+<object id='smCompliance' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.8.1
+</property>
+</object>
+<object id='smConformance' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.8
+</property>
+</object>
+<object id='smGroups' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.8.2
+</property>
+</object>
+<object id='storageManager' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1
+</property>
+</object>
+<object id='storageServer' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.2
+</property>
+</object>
+<object id='trapDescription' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A string to indicate the nature of the trap
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.1.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A string to indicate the nature of the trap
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+</tomanycont>
+<tomanycont id='notifications'>
+<object id='storageArrayCritical' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+This trap indicates an event where user-interaction is required immediately.
+Some example events are component failures or critical errors.
+</property>
+<property type="string" id="moduleName" mode="w" >
+SM10-R3-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.789.1123.1.500.0.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This trap indicates an event where user-interaction is required immediately.
+Some example events are component failures or critical errors.
+</property>
+<property type="lines" id="objects" mode="w" >
+{'eventTime': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'deviceHostIPAddr': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'deviceHostName': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'deviceErrorCode': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'deviceHostIPType': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'componentType': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'trapDescription': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'deviceUserLabel': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}, 'componentLocation': {'nodetype': 'object', 'module': 'SM10-R3-MIB'}}
+</property>
+</object>
+</tomanycont>
+</object>
+</objects>

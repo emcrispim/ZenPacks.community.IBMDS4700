@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure xmlns="http://namespaces.zope.org/browser">
+
+<resourceDirectory
+    name="IBMDS4700"
+    directory="resources"
+/>
+<viewlet
+    name="js-ibmds4700device"
+    paths="/++resource++IBMDS4700/js/IBMDS4700Device.js"
+    weight="10"
+    for="..IBMDS4700Device.IBMDS4700Device"
+    manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+    class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+    permission="zope2.Public"
+/>
+
+</configure>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+
+    <!-- Includes: Browser Configuration -->
+    <include package=".browser"/>
+
+    <adapter
+        provides=".interfaces.IEnclosureInfo"
+        for=".Enclosure.Enclosure"
+        factory=".info.EnclosureInfo"
+    />
+
+    <adapter
+        provides=".interfaces.IControllerInfo"
+        for=".Controller.Controller"
+        factory=".info.ControllerInfo"
+    />
+
+    <adapter
+        provides=".interfaces.IBatteryInfo"
+        for=".Battery.Battery"
+        factory=".info.BatteryInfo"
+    />
+
+    <adapter
+        provides=".interfaces.ITempSensorInfo"
+        for=".TempSensor.TempSensor"
+        factory=".info.TempSensorInfo"
+    />
+
+    <adapter
+        provides=".interfaces.ISCSIPortInfo"
+        for=".SCSIPort.SCSIPort"
+        factory=".info.SCSIPortInfo"
+    />
+
+     <adapter
+        provides=".interfaces.IPowerSupplyInfo"
+        for=".PowerSupply.PowerSupply"
+        factory=".info.PowerSupplyInfo"
+    />
+
+ 	<adapter
+        provides=".interfaces.IDriveInfo"
+        for=".Drive.Drive"
+        factory=".info.DriveInfo"
+    />
+    
+
+</configure>
+
